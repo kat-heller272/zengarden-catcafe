@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Slackside+One&display=swap');
+
+/*
+Color Pallete:
+coffee brown: 5e4b37
+coffee bean: 4f342a
+caramel: b85c27
+toasted: e8aa68
+creamed coffee: f6d3af
+cream: fcfaf7
+*/
+
+html {
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 12px;
+    }
+    .page-wrapper {
+        width: 90%;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #fcfaf7;
+    background-image: url('Assets/Patterns and Textures/CSS Zen Garden Pattern 2.1.svg');
+    background-repeat: repeat;
+    background-size: 40%;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+    max-width: 1080px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    background-color: hsla(0, 0%, 100%, 0.8);
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Delius';
+    font-size: 4rem;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+h2 {
+    font-family: 'Slackside one';
+    font-size: 3rem;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+h3 {
+    font-family: 'Delius';
+    color: #4f342a;
+    font-size: 2rem;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #4f342a;
+    line-height: 1.5;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: white;
+    background-image: url('Assets/Patterns and Textures/catpawtrail.svg');
+    background-size: 40%;
+    background-position: top left;
+    background-repeat: repeat;
+
+    color: #4f342a;
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-top: clamp(150px, 30vw, 350px);
+    padding-bottom: clamp(35px, 20vw, 75px);
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 10px solid #5e4b37;
+    margin-top: clamp(-150px, -10vw, -50px);
+    margin-bottom: 20px; 
+    animation: growPadding 2s forwards;
+}
+
+header::before {
+    content: "";
+    display: block;
+    background-image: url('Assets/Awning.svg');
+    background-position: top left;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(300px, 30vw, 500px);
+    animation: slide-down;
+    animation-duration: 2s;
+    filter: drop-shadow(-10px 10px 3px rgba(0, 0, 0, 0.2));
+}
+
+
+header::after {
+    content: "";
+    background-image: url('Assets/Welcome sign.svg');
+    background-position: center center;
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: clamp(30px, 10vw, 20%);
+    left: 0;
+    width: clamp(70px, 45vw, 600px);
+    height: clamp(36px, 25vw, 400px);
+    transform: rotate(-5deg);
+    animation: slide-down 3s 1s ease-out backwards, shake 1s 4s alternate linear;
+}
+
+@keyframes slide-down {
+    from {
+        translate: 0 -999px;
+    }
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(-5deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg)
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg)
+    }
+}
+
+@keyframes growPadding {
+    from {
+        padding-top: 0;
+    }
+    to {
+        padding-top: clamp(150px, 30vw, 350px);
+    }
+}
+
+/* SLEEPY CAT */
+
+header h2::after {
+    content: '';
+    background-image: url('Assets/Cat SVGs/sleepy Cat2.svg');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    position: absolute;
+    padding: 10px;
+    bottom: clamp(-125px, -9vw, -52px);
+    right: clamp(30px, 5vw, 10px);
+    width: clamp(150px, 30vw, 500px);
+    height: clamp(100px, 18vw, 400px);
+}
+
+/*  SUMMARY  */
+
+.summary, .explanation, .benefits, .requirements {
+    padding: 10px 50px;
+    background-color: white;
+    border-radius: 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/*  PREAMBLE  */
+
+.preamble {
+    position: relative;
+    display: grid;
+    grid-template-columns: clamp(150px, 25vw, 500px) minmax(200px, 2fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "image h-area"
+                         "image p1-area"
+                         "image p2-area"
+                         "image p3-area";
+    column-gap: 30px;
+    padding: 50px 30px 50px 30px;
+
+    background-color: white;
+    border-radius: 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.preamble::before {
+    content: "";
+    display: block;
+    padding: clamp(10px, 10%, 30px) clamp(40px, 30%, 60px) clamp(10px, 10%, 30px) clamp(200px, 30%, 300px);
+    box-shadow: -10px 5px 5px rgba(0, 0, 0, 0.2), inset -5px 5px 5px rgba(0, 0, 0, 0.2);
+
+    /*Grid Setup*/
+    grid-area: image;
+    width: auto;
+    height: clamp(150px, 40vw, 400px);
+    margin-left: clamp(-300px, -50vw, -100px);
+
+
+    /*Setting up background*/
+    background-image: url('Assets/Cat SVGs/Zen Garden - Donut Cat.svg');
+    background-size: contain;
+    background-color: #fcfaf7;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-origin: content-box;
+    border: 10px solid #4f342a ;
+    border-radius: 32px;
+}
+
+.preamble h3,
+.preamble p {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+}
+
+.preamble h3 {
+    grid-area: h-area;
+}
+
+.preamble p:nth-of-type(1) {
+    grid-area: p1-area;
+}
+
+.preamble p:nth-of-type(2) {
+    grid-area: p2-area;
+}
+
+.preamble p:nth-of-type(3) {
+    grid-area: p3-area;
+}
+
+/* PREAMBLE RESPONSIVE */
+
+@media (max-width: 767px) {
+    .preamble {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas: "image"
+                             "h-area"
+                             "p1-area"
+                             "p2-area"
+                             "p3-area";
+    }
+
+    .preamble::before {
+        height: clamp(150px, 50vw, 300px);;
+        padding: clamp(10px, 5%, 20px) clamp(40px, 30%, 60px) clamp(10px, 5%, 20px) clamp(80px, 20%, 120px);
+        margin-left: clamp(-150px, -50vw, -100px);
+    }
+
+    .preamble h3, .preamble p {
+        padding: 0px
+    }
+}
+
+/* MAIN */
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: "explanation explanation"
+                         "participation participation"
+                         "benefits footer"
+                         "requirements requirements";
+}
+
+@media (max-width: 767px) {
+    .main {
+        grid-template-areas: "explanation"
+                             "participation"
+                             "benefits"
+                             "requirements"
+                             "footer";
+        grid-template-columns: auto;
+    }
+}
+
+
+/* EXPLANATION */
+.explanation {
+    grid-area: explanation;
+}
+
+/* PARTICIPATION */
+
+.participation {
+    grid-area: participation;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) clamp(150px, 25vw, 500px);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "hp-area image2"
+                         "pa1-area image2"
+                         "pa2-area image2"
+                         "pa3-area image2";
+    column-gap: 30px;
+    padding: 50px 30px 50px 30px;
+
+    background-color: white;
+    border-radius: 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.participation::after {
+    content: "";
+    display: block;
+    padding: clamp(10px, 10%, 30px) clamp(200px, 30%, 300px) clamp(10px, 10%, 30px) clamp(40px, 30%, 60px);
+    box-shadow: -10px 5px 5px rgba(0, 0, 0, 0.2), inset -5px 5px 5px rgba(0, 0, 0, 0.2);
+
+    /*Grid Setup*/
+    grid-area: image2;
+    width: auto;
+    height: clamp(150px, 40vw, 400px);
+    margin-right: clamp(-300px, -50vw, -100px);
+
+
+    /*Setting up background*/
+    background-image: url('Assets/Cat SVGs/Zen Garden - Croissant Cat.svg');
+    background-size: contain;
+    background-color: #fcfaf7;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-origin: content-box;
+    border: 10px solid #4f342a ;
+    border-radius: 32px;
+}
+
+.participation h3 {
+    grid-area: hp-area;
+    padding-right: 10px;
+}
+
+.participation p {
+    padding-right: 10px;
+}
+
+.participation p:nth-of-type(1) {
+    grid-area: pa1-area;
+}
+
+.participation p:nth-of-type(2) {
+    grid-area: pa2-area;
+}
+
+.participation p:nth-of-type(3) {
+    grid-area: pa3-area;
+}
+
+/* PARRTICIPATION RESPONSIVE */
+
+@media (max-width: 767px) {
+    .participation {
+        grid-template-columns: 1fr;
+        column-gap: 0px;
+        grid-template-areas: "image2"
+                             "hp-area"
+                             "pa1-area"
+                             "pa2-area"
+                             "pa3-area";
+        padding: 20px 10px;
+    }
+
+    .participation::after {
+        padding: clamp(10px, 5%, 20px) clamp(100px, 20%, 150px) clamp(10px, 5%, 20px) clamp(20px, 30%, 60px);
+        height: clamp(150px, 50vw, 300px);
+        width: auto;
+        margin-right: clamp(-150px, -10vw, -100px);
+    }
+
+    .participation h3, .participation p {
+        padding: 0px
+    }
+}
+
+/* BENEFITS */
+
+.benefits { 
+    grid-area: benefits;
+}
+
+/* REQUIREMENTS */
+
+.requirements { 
+    grid-area: requirements;
+}
+
+footer {
+    grid-area: footer;
+
+    background-color: #b85c27;
+    border-radius: 16px;
+    border: 10px solid #4f342a;
+
+    font-family: "Slackside one";
+    font-size: 2rem;
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px 20px 30px;
+    width: clamp(200px, 15vw, 300px);
+    height: fit-content;
+    margin: 20px 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer::before {
+    content: 'Resources:';
+    font-family: 'Delius';
+    font-size: 2rem;
+    color: white;
+    margin: 20px 5px 10px;
+}
+
+footer::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+
+    background-image: url('Assets/Patterns and Textures/catpawtrail.svg');
+    background-size: 200%;
+    background-position: top left;
+    background-repeat: repeat;
+    opacity: .3;
+}
+
+footer a {
+    color: white;
+    display: block;
+    transition: all .2s ease-in-out;
+    margin: 2vw;
+}
+
+footer a:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+    .summary, .preamble, .explanation, .participation, .benefits, .requirements {
+        padding: 10px 20px;
+        border-radius: 16px;
+    }
+}
+
+
+/* DESIGN MENU */
+
+.design-selection {
+    grid-area: design-menu;
+
+    display: grid;
+    grid-template-columns: clamp(450px, 25%, 500px) auto;
+    grid-template-areas: "catpuccino header"
+                         "catpuccino nav";
+    column-gap: 30px;
+
+    background-color: #274c43;
+    position: relative;
+    max-width: 85%;
+    margin: 20px auto;
+    z-index: 1;
+    padding: 35px 15px;
+    align-items: start;
+    border: solid 2px #e8aa68; 
+    outline: solid 20px #5e4b37;
+}
+
+.design-selection .select{
+    grid-area: header;
+    font-size: 2rem;
+    font-family: 'Slackside One';
+    
+    background-image: url('Assets/Patterns and Textures/Chalk texture2.jpg');
+    background-size: contain;
+    background-clip: text;
+    color: rgba(255, 255, 255, .7);
+    padding: 0px 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.design-selection .select::before {
+    content: 'Menu';
+    text-decoration: underline;
+    display: block;
+    font-size: 2rem;
+    font-family: 'Delius';
+    color: white;
+}
+
+
+.design-selection nav {
+    grid-area: nav;
+    padding-left: clamp(30px, 2vw, 40px);
+    padding-bottom: 15px;
+}
+
+.design-selection::before {
+    content: "";
+    grid-area: catpuccino;
+    background-image: url('Assets/Cat SVGs/Zen Garden - Catpuccino.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-origin: content-box;
+    padding: 5px 15px;
+    width: auto;
+    height: clamp(200px, 30vw, 350px);
+    align-self: center;
+}
+
+
+/* RESPONSIVE CHALKBOARD */
+
+@media (max-width: 1250px) {
+    .design-selection {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "catpuccino"
+                             "header"
+                             "nav";
+        row-gap: 0;
+        padding: 5px 15px
+    }
+}
+
+
+/* SETS UP CHALKBOARD TEXTURES */
+
+.design-selection::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('Assets/Patterns and Textures/grunge_distressed_grainy_texture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.design-selection a {
+    background-image: url('Assets/Patterns and Textures/Chalk texture2.jpg');
+    background-size: contain;
+    background-clip: text;
+    color: rgba(255, 255, 255, .7);
+    display: inline-block; 
+    transition: all .2s ease-in-out;
+}
+
+.design-selection a:hover {
+    transform: scale(1.1);
+}
+
+.design-selection li {
+    background-image: url('Assets/Patterns and Textures/Chalk texture2.jpg');
+    background-size: contain;
+    background-clip: text;
+    color: rgba(255, 255, 255, .7);
+    font-family: 'Slackside one';
+    font-size: 2rem;
+}
+
+.design-selection ul {
+    list-style: none;
+    list-style-type: decimal;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.design-archives {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    max-width: 85%;
+    margin: 0 auto;
+    justify-content: flex-end;
+}
+
+.design-archives .archives {
+    display: none;
+}
+
+.design-archives ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.design-archives ul li {
+    padding: 15px;
+    font-family: 'Slackside one';
+    color: #fcfaf7;
+    background-color: #4f342a;
+    margin: 10px;
+    list-style: none;
+    border-radius: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.design-archives ul li a {
+    font-family: 'Slackside one';
+    font-size: 2rem;
+    color: #fcfaf7;
+}
+
+.design-archives ul li:hover {
+    transform: scale(1.1);
+    box-shadow: inset -5 5px 15px rgba(0, 0, 0, 0.2), 0 0 30px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTTOM */
+
+.zen-resources {
+    grid-area: resources;
+
+    background-color: #4f342a;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: -20px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.zen-resources h3 {
+    display: none;
+}
+
+.zen-resources ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1080px
+}
+
+.zen-resources li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: flex-start;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+
+    color: transparent; /* Makes text invisible */
+    text-indent: -9999px; /* Pushes text off-screen */
+    overflow: hidden; /* Hides the pushed text */
+    white-space: nowrap; /* Prevents text from wrapping */
+
+    background-repeat: no-repeat;
+    background-position: center 25px;
+    background-size: auto 70px;
+
+    transition: all .2s ease-in-out;
+}
+
+.zen-resources .view-css a {
+    background-image: url('Assets/Icons/White -  View.svg');
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.zen-resources .css-resources a{
+    background-image: url('Assets/Icons/White - Settings.svg');
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.zen-resources .zen-faq a {
+    background-image: url('Assets/Icons/White - FAQ2.svg');
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.zen-resources .zen-submit a {
+    background-image: url('Assets/Icons/White - Submit.svg');
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.zen-resources .zen-translations a {
+    background-image: url('Assets/Icons/White - Translate.svg');
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.zen-resources a:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.2);
+}
